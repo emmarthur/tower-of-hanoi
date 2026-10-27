@@ -1,0 +1,249 @@
+:root {
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-display: "Outfit", var(--font-body);
+  --text: #f8fafc;
+  --text-muted: #cbd5e1;
+  --accent: #f472b6;
+  --accent-2: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: linear-gradient(155deg, #1e1b4b 0%, #4a044e 45%, #0c4a6e 100%);
+  background-attachment: fixed;
+}
+
+.bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-blob-a {
+  width: 280px;
+  height: 280px;
+  background: var(--accent);
+  top: -40px;
+  left: -20px;
+}
+
+.bg-blob-b {
+  width: 260px;
+  height: 260px;
+  background: var(--accent-2);
+  bottom: -30px;
+  right: -20px;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.page-help {
+  max-width: 36rem;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fbcfe8;
+  text-decoration: none;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(244, 114, 182, 0.45);
+  background: rgba(244, 114, 182, 0.12);
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  margin: 0.35rem 0;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.85rem;
+  backdrop-filter: blur(8px);
+}
+
+.status-card {
+  text-align: center;
+}
+
+.stats-text {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
+.result-text {
+  margin: 0 0 0.5rem;
+  color: #86efac;
+  font-weight: 700;
+}
+
+.error {
+  margin: 0 0 0.5rem;
+  color: #fca5a5;
+  font-size: 0.9rem;
+}
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  min-height: 14rem;
+  padding: 1rem 0.5rem 0;
+  background: rgba(15, 23, 42, 0.35);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tower-col {
+  flex: 1;
+  max-width: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding-bottom: 0.35rem;
+}
+
+.tower-col.is-selected {
+  outline: 2px solid #f9a8d4;
+  outline-offset: 2px;
+}
+
+.peg {
+  position: absolute;
+  bottom: 1.75rem;
+  width: 0.35rem;
+  height: 10rem;
+  background: linear-gradient(180deg, #94a3b8, #475569);
+  border-radius: 999px;
+  z-index: 0;
+}
+
+.disk-stack {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 10rem;
+  width: 100%;
+  z-index: 1;
+  padding-bottom: 0.25rem;
+}
+
+.disk {
+  height: 1.35rem;
+  margin: 0.12rem 0;
+  border-radius: 0.35rem;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.tower-label {
+  margin-top: 0.35rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.moves-hint {
+  margin: 0 0 0.65rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.tower-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.tower-btn {
+  flex: 1;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.45rem 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.12);
+  color: #e0f2fe;
+  cursor: pointer;
+}
+
+.tower-btn.is-selected {
+  background: rgba(244, 114, 182, 0.35);
+  border-color: #f9a8d4;
+}
+
+.tower-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.help h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.help p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.help + .help {
+  margin-top: 0.75rem;
+}
